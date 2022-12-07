@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix = "5 song recommendations for someone who likes these songs: ";
 const generateAction = async (req, res) => {
-  // Run first prompt
+  // Run first prompts
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
