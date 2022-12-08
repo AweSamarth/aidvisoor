@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Typical from "react-typical";
 
 const Home = () => {
@@ -9,6 +9,7 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [choice, setChoice] = useState("Songs");
+  const scrollToRef = useRef()
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
@@ -28,6 +29,7 @@ const Home = () => {
 
     setApiOutput(`${output.text}`);
     setIsGenerating(false);
+    scrollToRef.current.scrollIntoView()
   };
   const onUserChangedText = (event) => {
     console.log(event.target.value);
@@ -36,6 +38,7 @@ const Home = () => {
 
   const handleChange = (event) => {
     setChoice(event.target.value);
+    setUserInput("")
     console.log(choice);
   };
 
@@ -64,11 +67,11 @@ const Home = () => {
               Recommendations from an AI
             </h1>
           </div>
-          <div className="header-subtitle">
+          <div className="header-subtitle mt-2">
             <h2>Tailored to your current taste. </h2>
           </div>
         </div>
-        <div className="text-[white] text-lg -mb-12">
+        <div className="text-[white] text-lg -mt-5 -mb-12">
           What do you want the AI to recommend you?
         </div>
         <div className="selector">
@@ -120,9 +123,10 @@ const Home = () => {
               <p>{apiOutput}</p>
             </div>
           </div>
+          <div ref={scrollToRef} className=" select-none">You weren't supposed to find this!</div>
         </div>
       </div>
-      <div className="badge-container grow">
+      <div className="badge-container grow" >
         <a
           href="https://buildspace.so/builds/ai-writer"
           target="_blank"

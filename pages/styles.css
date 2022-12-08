@@ -49,10 +49,12 @@ body {
 }
 
 .header-title h1 {
+
     width: 100%;
-    font-weight: 700;
+    font-weight:700;
     font-size: 72px;
-    letter-spacing: -4px;
+    letter-spacing: -2.5px;
+    word-spacing: 2px;
     line-height: 1.2em;
     text-align: center;
     margin: 0;
