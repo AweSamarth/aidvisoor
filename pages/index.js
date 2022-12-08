@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import buildspaceLogo from "../assets/buildspace-logo.png";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Typical from "react-typical";
 
 const Home = () => {
@@ -9,11 +9,14 @@ const Home = () => {
   const [apiOutput, setApiOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [choice, setChoice] = useState("Songs");
+  const [theText, setTheText] = useState("")
   const scrollToRef = useRef()
-
+  useEffect(()=>{
+    setTheText(<Typical steps={["Song", 2000, "Movie", 2000, "Game", 2000]} loop={Infinity} wrapper="span"/>)
+    console.log(theText)
+    }, [])
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
-
     console.log("Calling OpenAI...");
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -57,12 +60,8 @@ const Home = () => {
         <div className="header">
           <div className="header-title ">
             <h1>
-              Get{" "}
-              <Typical
-                steps={["Song", 2000, "Movie", 2000, "Game", 2000]}
-                loop={Infinity}
-                wrapper="span"
-              />{" "}
+              Get{" "} {theText}
+              {" "}
               <br />
               Recommendations from an AI
             </h1>
