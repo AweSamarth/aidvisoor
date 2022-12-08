@@ -359,6 +359,7 @@ textarea {
     }
 }
 
+
 @media (max-width: 600px) {
     .container {
         max-width: 400px;
@@ -414,3 +415,5 @@ textarea {
         transform: rotate(360deg);
     }
 }
+
+
