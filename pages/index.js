@@ -12,7 +12,7 @@ const Home = () => {
   const [theText, setTheText] = useState("")
   const scrollToRef = useRef()
   useEffect(()=>{
-    setTheText(<Typical steps={["Song", 2000, "Movie", 2000, "Game", 2000, "Book", 2000]} loop={Infinity} wrapper="span"/>)
+    setTheText(<Typical steps={["Song",2000,"Movie",2000,"Game",2000,"Book",2000]} loop={Infinity} wrapper="span"/>)
     console.log(theText)
     }, [])
   const callGenerateEndpoint = async () => {
@@ -60,7 +60,7 @@ const Home = () => {
         <div className="header">
           <div className="header-title ">
             <h1>
-              Get{" "}<span className="text-[#f77043]"> {theText}</span>
+              Get{" "}<span className="text-[#f77043]">{theText}</span>
               {" "}
               <br />
               Recommendations from an AI
