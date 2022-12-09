@@ -12,7 +12,7 @@ const Home = () => {
   const [theText, setTheText] = useState("")
   const scrollToRef = useRef()
   useEffect(()=>{
-    setTheText(<Typical steps={["Song",2000,"Movie",2000,"Game",2000,"Book",2000]} loop={Infinity} wrapper="span"/>)
+    setTheText(<Typical steps={["Song",2000,"Movie",2000,"Game",2000,"Book",2000, "Food", 2000]} loop={Infinity} wrapper="span"/>)
     console.log(theText)
     }, [])
   const callGenerateEndpoint = async () => {
@@ -83,11 +83,12 @@ const Home = () => {
             <option>Movies</option>
             <option>Games</option>
             <option>Books</option>
+            <option>Food</option>
           </select>
         </div>
         <div className="prompt-container  ">
           <textarea
-            placeholder={`enter some ${choice.toLowerCase()} you like ${
+            placeholder={`enter some ${choice.toLowerCase()}${choice =="Food"?" items":""} you like ${
               choice == "Songs"
                 ? "(if possible, mention their artists too)"
                 : ""
