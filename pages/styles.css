@@ -52,7 +52,7 @@ body {
 
     width: 100%;
     font-weight:700;
-    font-size: 72px;
+    font-size: 70px;
     letter-spacing: -2.5px;
     word-spacing: 2px;
     line-height: 1.2em;
@@ -369,7 +369,7 @@ textarea {
     }
 
     .header-title h1 {
-        font-size: 50px;
+        font-size: 43px;
     }
 
     .header-subtitle h2 {
